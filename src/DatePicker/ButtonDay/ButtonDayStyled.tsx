@@ -51,7 +51,7 @@ const ButtonDayStyled = styled.button<TypedButtonDay>`
   &:disabled {
     opacity: 0.5;
   }
-  &&.active {
+  &&.button-active {
     background-color: ${props => props.primarycolor || 'teal'};
     color: white;
     &:hover {
@@ -99,10 +99,10 @@ const ButtonDay = ({
 }: IButtonDay) => {
   const myDay = setDate(value, dayNumber);
   const sameDay = mainArray && isSameDay(myDay, value);
-  const activeClass = useMemo(() => {
+  const buttonDayClass = useMemo(() => {
     if (prefix) return 'button-day button-day-prefix';
     if (suffix) return 'button-day button-day-suffix';
-    return sameDay ? 'active button-day' : 'button-day';
+    return sameDay ? 'button-active button-day' : 'button-day';
   }, [prefix, sameDay, suffix]);
   const handleClick = () => {
     onChange(myDay);
@@ -122,7 +122,7 @@ const ButtonDay = ({
   return (
     <ButtonDayStyled
       onClick={() => handleClick()}
-      className={activeClass}
+      className={buttonDayClass}
       primarycolor={primarycolor}
       secondarycolor={secondarycolor}
       tertiarycolor={tertiarycolor}

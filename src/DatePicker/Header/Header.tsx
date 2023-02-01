@@ -88,6 +88,7 @@ const Header = ({
         primarycolor={primarycolor}
         className="select-button"
         data-testid="month-select"
+        style={{ ...styles?.selectButton }}
       >
         {format(value, formatMonth)}
       </ButtonStyed>
@@ -105,6 +106,7 @@ const Header = ({
         primarycolor={primarycolor}
         className="select-button"
         data-testid="year-select"
+        style={{ ...styles?.selectButton }}
       >
         {format(value, formatYear)}
       </ButtonStyed>

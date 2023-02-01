@@ -1,4 +1,4 @@
-import { IArrowHeaderAria, IDisplayMonthOrYear } from "../types";
+import { IArrowHeaderAria, IDisplayMonthOrYear } from '../types';
 interface IArrowButtonSize {
   size?: string;
 }
@@ -11,7 +11,8 @@ export type ArrowButtonType = (React.CSSProperties | undefined) &
 
 export interface IHeaderStyles {
   arrowButton?: ArrowButtonType;
-  header: React.CSSProperties | undefined;
+  header?: React.CSSProperties | undefined;
+  selectButton?: React.CSSProperties | undefined;
 }
 
 export interface IHeaderProps {

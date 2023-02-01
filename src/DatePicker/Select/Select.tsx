@@ -116,7 +116,7 @@ const Select = ({
       role="listbox"
       aria-multiselectable={false}
       $type={type === "month" ? false : true}
-      className="buttons_container"
+      className="select-buttons_container"
       style={{ ...styles?.selectContainer }}
     >
       {options.map((option, index) => (
