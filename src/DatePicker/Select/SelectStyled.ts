@@ -68,7 +68,7 @@ export const StyledButtonSelect = styled.button<IButtonSelectProps>`
   color: ${props =>
     props['aria-selected'] === true
       ? props.tertiarycolor ?? 'white'
-      : props.tertiarycolor ?? 'teal  '};
+      : props.primarycolor ?? 'teal  '};
   &:hover {
     border: 2px solid ${props => props.primarycolor || 'teal'};
     color: ${props => props.tertiarycolor || 'white'};

@@ -3,16 +3,17 @@ interface IArrowButtonSize {
   size?: string;
 }
 interface IButtonChildrens {
-  childrens: JSX.Element[];
+  childrens?: JSX.Element[];
 }
 export type ArrowButtonType = (React.CSSProperties | undefined) &
-  IArrowButtonSize &
   IButtonChildrens;
 
 export interface IHeaderStyles {
-  arrowButton?: ArrowButtonType;
+  childrens?: JSX.Element[];
+  ArrowButtonStyles?: React.CSSProperties | undefined;
   header?: React.CSSProperties | undefined;
   selectButton?: React.CSSProperties | undefined;
+  arrowButtonSize?: string;
 }
 
 export interface IHeaderProps {
