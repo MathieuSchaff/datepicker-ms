@@ -113,41 +113,42 @@ The second way is by playing with the classes.
 
 The third way is by providing the DatePicker component an object called styles.
 
-I) Do you want the prefix and/or suffix days ?
+### Do you want the prefix and/or suffix days ?
+
 There is two props to pass to your component
 
 withPrefix?: boolean;
 withSuffix?: boolean;
 
-II) Classes.
+### Classes.
 
 The diffrents classes css used are:
 
-datepicker\*\*input : the main input
+1. datepicker-input : the main input
 
-calendar: the calendar wrapper container
+2. calendar: the calendar wrapper container
 
-calendar\*\*header : the header container of the arrow and buttons month and year
+3. calendar-header : the header container of the arrow and buttons month and year
 
-arrow-button: the arrow to navigate
+4. arrow-button: the arrow to navigate
 
-select-button: the button to display the months or years
+5. select-button: the button to display the months or years
 
-day-name: the days in letters
+6. day-name: the days in letters
 
-button-day: the button to select a day ( and a date )
+7. button-day: the button to select a day ( and a date )
 
-button-day-prefix: to style the button days that are before the month selected
+8. button-day-prefix: to style the button days that are before the month selected
 
-button-day-suffix: to style the button days that are after the month selected
+9. button-day-suffix: to style the button days that are after the month selected
 
-button-active: the day selected if there was one. ( by default the day of today)
+10. button-active: the day selected if there was one. ( by default the day of today)
 
-select-buttons_container: the container of the buttons month or year
+11. select-buttons_container: the container of the buttons month or year
 
-\${type}\_select_buttonthe buttons month or year ( type can be month or year)
+12. \${type}\_select_buttonthe buttons month or year ( type can be month or year)
 
-II) Custom styles with object: "styles".
+### Custom styles with object: "styles".
 
 to customize the color, you set two keys inside the styles object:
 primarycolor and secondarycolor and tertiarycolor
@@ -162,7 +163,7 @@ const styles: IStyles = {
   headerStyles:{
       childrens: ["<<", "<", ">", ">>"],
       ArrowButtonStyles:    "css properties...",
-      arrowButtonSize: "2rem" //( default is 3rem),
+      arrowButtonSize: "2rem" //( default is 1.5rem),
       selectButton: {border: "2px",  "css properties..."},
       header: {height: "200px", "css properties..."},
   },

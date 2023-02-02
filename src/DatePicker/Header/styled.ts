@@ -24,8 +24,8 @@ interface INavButtonProps {
 // THE BUTTON TO NAGIVATE BACK AND NEXT OF MONTHS / YEARS
 export const SNavButton = styled.button<INavButtonProps>`
   cursor: pointer;
-  width: ${props => props.size || '3rem'};
-  height: ${props => props.size || '3rem'};
+  width: ${props => props.size || '1.5rem'};
+  height: ${props => props.size || '1.5rem'};
   color: ${props => props.primarycolor || 'teal'};
   border: 1px solid ${props => props.primarycolor || 'teal'};
   border-radius: 50%;
