@@ -160,14 +160,11 @@ const styles: IStyles = {
   inputStyles: {border: "2px",  "css properties..."},
   calendarWrapperStyles: {border: "2px",  "css properties..."},
   headerStyles:{
-    arrowButton: {
-      height: "20px",
-       "css properties...",
       childrens: ["<<", "<", ">", ">>"],
-      size: "3rem"
-    },
-    selectButton: {border: "2px",  "css properties..."},
-   header: {height: "200px", "css properties..."},
+      ArrowButtonStyles:    "css properties...",
+      arrowButtonSize: "2rem" //( default is 3rem),
+      selectButton: {border: "2px",  "css properties..."},
+      header: {height: "200px", "css properties..."},
   },
   days: {
     buttonday: {
