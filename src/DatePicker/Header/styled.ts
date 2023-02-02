@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { BsChevronDoubleRight } from "react-icons/bs";
-import { BsChevronDoubleLeft } from "react-icons/bs";
-import { BsChevronRight } from "react-icons/bs";
-import { BsChevronLeft } from "react-icons/bs";
+import { BsChevronDoubleRight } from 'react-icons/bs';
+import { BsChevronDoubleLeft } from 'react-icons/bs';
+import { BsChevronRight } from 'react-icons/bs';
+import { BsChevronLeft } from 'react-icons/bs';
 export const SHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -17,17 +17,17 @@ interface INavButtonProps {
   primarycolor?: string;
   type: string;
   size?: string;
-  ["data-testid"]: string;
-  ["aria-label"]: string;
+  ['data-testid']: string;
+  ['aria-label']: string;
   className: string;
 }
 // THE BUTTON TO NAGIVATE BACK AND NEXT OF MONTHS / YEARS
 export const SNavButton = styled.button<INavButtonProps>`
   cursor: pointer;
-  width: ${(props) => props.size || "1.5rem"};
-  height: ${(props) => props.size || "1.5rem"};
-  color: ${(props) => props.primarycolor || "teal"};
-  border: 1px solid ${(props) => props.primarycolor || "teal"};
+  width: ${props => props.size || '1.5rem'};
+  height: ${props => props.size || '1.5rem'};
+  color: ${props => props.primarycolor || 'teal'};
+  border: 1px solid ${props => props.primarycolor || 'teal'};
   border-radius: 50%;
   background-color: transparent;
   border-radius: 50%;
@@ -36,7 +36,7 @@ export const SNavButton = styled.button<INavButtonProps>`
   align-items: center;
   &:hover {
     color: white;
-    background-color: ${(props) => props.primarycolor || "teal"};
+    background-color: ${props => props.primarycolor || 'teal'};
   }
   &:disabled {
     opacity: 0.5;
@@ -69,20 +69,20 @@ export interface TypedButtonMonthOrYear {
   primarycolor?: string;
   type: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
-  "aria-haspopup"?: string;
-  "aria-controls"?: string | undefined;
-  "aria-expanded"?: boolean | undefined;
+  'aria-haspopup'?: string;
+  'aria-controls'?: string | undefined;
+  'aria-expanded'?: boolean | undefined;
 }
 export const ButtonStyed = styled.button<TypedButtonMonthOrYear>`
   flex: 1 0 0;
-  font-size: 1.2rem;
-  color: ${(props) => props.primarycolor || "teal"};
+  font-size: 1.8rem;
+  color: ${props => props.primarycolor || 'teal'};
   border-style: solid;
   border-width: 2px;
   border-color: white;
   background-color: white;
   cursor: pointer;
   &:hover {
-    border-color: ${(props) => props.primarycolor || "teal"};
+    border-color: ${props => props.primarycolor || 'teal'};
   }
 `;

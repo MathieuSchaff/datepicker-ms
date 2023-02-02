@@ -19,7 +19,7 @@ const NavButton = ({
   primarycolor,
   dataTestid,
   ariaLabel,
-  size,
+  size = '3rem',
   styles,
   customArrow,
   children,
