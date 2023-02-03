@@ -10,6 +10,14 @@
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "datepicker-ms",
+    "datepicker from scratch",
+    "react datepicker typescript",
+    "react datepicker",
+    "datepicker react",
+    "datepicker react typescript"
+  ],
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
