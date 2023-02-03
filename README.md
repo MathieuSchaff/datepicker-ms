@@ -1,6 +1,6 @@
 # React Date Picker from Scratch using TSDX React w/ Storybook User Guide
 
-[React Date Picker W](http://react-day-picker.js.org/) is a date picker component for [React](https://reactjs.org/). Renders an input and a calendar. This components is customizable, easy to use and can be styled to match any design.
+[React Date Picker MS](https://www.npmjs.com/package/react-datepicker-ms) is a date picker component for [React](https://reactjs.org/). Renders an input and a calendar. This components is customizable, easy to use and can be styled to match any design.
 
 ## Main features
 
