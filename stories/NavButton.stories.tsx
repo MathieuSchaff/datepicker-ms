@@ -45,8 +45,8 @@ const Template: ComponentStory<typeof NavButton> = args => (
 );
 export const Default = Template.bind({});
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Custom = Template.bind({});
+Custom.args = {
   onClick: () => console.log('onClick'),
   disabled: false,
   dataTestid: 'dataTestid',

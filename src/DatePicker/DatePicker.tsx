@@ -102,7 +102,6 @@ export const DatePicker = ({
     }
   }, [isOpen]);
   // used when click outside of the or when enter is pressed inside the input
-
   useOnClickOutside(container, handleSetValueDate);
   return (
     <DatePickerWrapper ref={container}>

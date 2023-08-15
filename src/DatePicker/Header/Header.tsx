@@ -51,27 +51,27 @@ const Header = ({
         disabled={
           minDate !== undefined ? isBefore(subYears(value, 1), minDate) : false
         }
-        styles={styles?.arrowButton}
+        styles={styles?.ArrowButtonStyles}
         primarycolor={primarycolor}
         dataTestid="prev-year"
         ariaLabel={ariaArrow?.prevYear ?? "go to previous year"}
-        size={styles?.arrowButton?.size}
+        size={styles?.arrowButtonSize}
       >
-        <SvgButtonLeftYear />
+       {styles?.childrens?.[0] ??<SvgButtonLeftYear />}
+
       </NavButton>
       <NavButton
         onClick={prevMonth}
         disabled={
           minDate !== undefined ? isBefore(subMonths(value, 1), minDate) : false
         }
-        styles={styles?.arrowButton}
+        styles={styles?.ArrowButtonStyles}
         primarycolor={primarycolor}
         dataTestid="prev-month"
         ariaLabel={ariaArrow?.prevMonth ?? "go to previous month"}
-        size={styles?.arrowButton?.size}
-        customArrow={styles?.arrowButton?.childrens[1]}
+        size={styles?.arrowButtonSize}
       >
-        <SvgButtonLeftMonth />
+       {styles?.childrens?.[1] ??  <SvgButtonLeftMonth />}
       </NavButton>
 
       <ButtonStyed
@@ -88,6 +88,7 @@ const Header = ({
         primarycolor={primarycolor}
         className="select-button"
         data-testid="month-select"
+        style={{ ...styles?.selectButton }}
       >
         {format(value, formatMonth)}
       </ButtonStyed>
@@ -105,6 +106,8 @@ const Header = ({
         primarycolor={primarycolor}
         className="select-button"
         data-testid="year-select"
+        style={{ ...styles?.selectButton }}
+
       >
         {format(value, formatYear)}
       </ButtonStyed>
@@ -113,25 +116,25 @@ const Header = ({
         onClick={nextMonth}
         disabled={maxDate !== undefined && isAfter(value, maxDate)}
         primarycolor={primarycolor}
-        styles={styles?.arrowButton}
+        styles={styles?.ArrowButtonStyles}
         dataTestid="next-month"
         ariaLabel={ariaArrow?.nextMonth ?? "go to next month"}
-        size={styles?.arrowButton?.size}
-        customArrow={styles?.arrowButton?.childrens[2]}
+        size={styles?.arrowButtonSize}
+
       >
-        <SvgButtonRightMonth />
+      { 
+      styles?.childrens?.[3] ??  <SvgButtonRightMonth />}
       </NavButton>
       <NavButton
         onClick={nextYear}
         disabled={maxDate !== undefined && isAfter(addYears(value, 1), maxDate)}
         primarycolor={primarycolor}
-        styles={styles?.arrowButton}
+        styles={styles?.ArrowButtonStyles}
         dataTestid="next-year"
         ariaLabel={ariaArrow?.nextYear ?? "go to next year"}
-        size={styles?.arrowButton?.size}
-        customArrow={styles?.arrowButton?.childrens[3]}
+        size={styles?.arrowButtonSize}
       >
-        <SvgButtonRightYear />
+        {styles?.childrens?.[3] ?? <SvgButtonRightYear />}
       </NavButton>
     </SHeader>
   );

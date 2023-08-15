@@ -1,5 +1,5 @@
-import React from "react";
-import { SNavButton } from "./styled";
+import React from 'react';
+import { SNavButton } from './styled';
 
 interface INavButtonProps {
   onClick: () => void;
@@ -9,7 +9,7 @@ interface INavButtonProps {
   ariaLabel: string;
   size?: string;
   styles?: React.CSSProperties;
-  customArrow?: React.ReactNode;
+  customArrow?: JSX.Element[];
   children?: React.ReactNode;
 }
 
@@ -19,7 +19,7 @@ const NavButton = ({
   primarycolor,
   dataTestid,
   ariaLabel,
-  size,
+  size = '1.5rem',
   styles,
   customArrow,
   children,
@@ -33,7 +33,7 @@ const NavButton = ({
       primarycolor={primarycolor}
       type="button"
       data-testid={dataTestid}
-      aria-label={ariaLabel ?? "go to previous month"}
+      aria-label={ariaLabel ?? 'go to previous month'}
       size={size}
     >
       {customArrow ?? children}

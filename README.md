@@ -1,12 +1,214 @@
-# TSDX React w/ Storybook User Guide
+# React Date Picker from Scratch using TSDX React w/ Storybook User Guide
+
+[React Date Picker MS](https://www.npmjs.com/package/react-datepicker-ms) is a date picker component for [React](https://reactjs.org/). Renders an input and a calendar. This components is customizable, easy to use and can be styled to match any design.
+
+## Main features
+
+- ☀️ Select a day
+- 🧘‍♀️ using [date-fns](http://date-fns.org/) as date library
+- 🌎 Localizable into any language
+- ➡️ Keyboard navigation for certain part of the component
+- 🤖 Written in TypeScript
+- Easy to style and customize
+- 📄 Easy to integrate
+
+## Installation
+
+npm install react-datepicker-ms 
+
+## Example
+
+```javascript
+import React from 'react';
+import { format } from 'date-fns';
+import { DatePicker } from 'react-datepicker-ms';
+export default function Form() {
+  const [selected, setSelected] = React.useState < Date > new Date();
+  return (
+    <DatePicker
+      id="dateOfBirth"
+      value={selectedDate}
+      onChange={setSelectedDate}
+      formatDate={FORMAT_OF_DATE}
+      maxDate={new Date(2027, 2, 22)}
+      name="myBeautifulDatePicker"
+      ariaRequired={true}
+      iso={true}
+    />
+  );
+}
+```
+
+|  Prop name   |             Type             |                     Description                     | Default value/optionnal |     Example values     | required |
+| :----------: | :--------------------------: | :-------------------------------------------------: | :---------------------: | :--------------------: | :------: |
+|      id      |            string            |                 the id of the input                 |          none           |   "datepicker-input    |   true   |
+|    value     |             Date             |                the value of the date                |          none           |       new Date()       |   true   |
+|   onChange   | <React.SetStateAction<Date>> | The setter of the date inside the higher component  |          none           |    setSelectedDate     |   true   |
+|   minDate    |             Date             |                    The min date                     |        optionnal        | new Date(2012, 9, 10)  |  false   |
+|   maxDate    |             Date             |                    The max date                     |        optionnal        | new Date(2022, 10, 10) |  false   |
+| placeholder  |            string            |     the placerholder of the input text element      |        optionnal        |      "2010-4-22"       |  false   |
+|  formatDate  |            string            | the format of the date to be formated with date fns |      "yyyy-MM-dd"       |      "yyyy-L-dd"       |   true   |
+|     name     |            string            |                    name of input                    |          none           |    "date of birth"     |   true   |
+| ariaRequired |           boolean            |               is this input required                |        optionnal        |       false/true       |  false   |
+|     iso      |           boolean            |        local date begin on sunday or monday?        |        optionnal        |       false/true       |  false   |
+|  formatDay   |            string            |             the format of the day input             |          Text           |        And more        |  false   |
+| formatMonth  |            string            |              the format of the months               |          "LLL"          |         "LLL"          |  false   |
+|  formatYear  |            string            |               the format of the years               |         "yyyy"          |         "yyyy"         |  false   |
+|  ariaLabels  |          AriaLabels          |           the aria labels to be displayed           |        see below        |       see below        |  false   |
+|    styles    |           IStyles            |              the styles to be applied               |        see below        |       see below        |  false   |
+|  withPrefix  |           boolean            |       display the prefix days in the calendar       |          true           |          true          |  false   |
+|  withSuffix  |           boolean            |       display the suffix days in the calendar       |          true           |          true          |  false   |
+
+4 things are essentials for this component:
+
+1. value: ( must be a date)
+2. the setter of the date
+3. the id
+4. the name
+
+## Minimum date and maximum date
+
+The maximum date and the minimum date can be passer to the DatePicker component by adding two props:
+
+exemple: minDate={new Date(1990, 10, 10)} maxDate={new Date(2020, 10, 10)}
+
+## i18n
+
+Different language and date formats are supported by this component. We uses [date-fns](http://date-fns.org/) to format the dates, and the easiest way of changing the language of the calendar is [changing the date fns locale]
+
+Don't forget to import your locale file from the date fns library `date-fns/locale` folder.
+If you don't set it. Dates will be in en-US by default.
+
+```javascript
+import { setDefaultOptions } from 'date-fns';
+import { fr, enUS } from 'date-fns/locale';
+//On top of the file set the locale option like this:
+setDefaultOptions({ locale: fr });
+```
+
+Now this component will be in french
+
+IMPORTANT:
+NOT ALL COUNTRIES BEGIN ON THE SAME DAY.
+There is countries beginning on sunday and some other on monday.
+
+If your country begin on sunday:
+
+the component is by default configured to begin on sunday but you can still set the value to be sure. You will have to set iso={false}
+
+if your component begin on monday: iso={true}
+
+## Customize the Appearance
+
+There is three ways to style elements in the calendar.
+
+the first one is if you want to display the days before and after the month selected in the calendar
+
+The calandar will always container 42 button days by default. See part I)
+
+The second way is by playing with the classes.
+
+The third way is by providing the DatePicker component an object called styles.
+
+### Do you want the prefix and/or suffix days ?
+
+There is two props to pass to your component
+
+withPrefix?: boolean;
+withSuffix?: boolean;
+
+### Classes.
+
+The diffrents classes css used are:
+
+1. datepicker-input : the main input
+
+2. calendar: the calendar wrapper container
+
+3. calendar-header : the header container of the arrow and buttons month and year
+
+4. arrow-button: the arrow to navigate
+
+5. select-button: the button to display the months or years
+
+6. day-name: the days in letters
+
+7. button-day: the button to select a day ( and a date )
+
+8. button-day-prefix: to style the button days that are before the month selected
+
+9. button-day-suffix: to style the button days that are after the month selected
+
+10. button-active: the day selected if there was one. ( by default the day of today)
+
+11. select-buttons_container: the container of the buttons month or year
+
+12. \${type}\_select_buttonthe buttons month or year ( type can be month or year)
+
+### Custom styles with object: "styles".
+
+to customize the color, you set two keys inside the styles object:
+primarycolor and secondarycolor and tertiarycolor
+
+```typescript
+const styles: IStyles = {
+  primarycolor: "#54a0ff",
+  secondarycolor: "#DB5461",
+  tertiarycolor: "ffffff",
+  inputStyles: {border: "2px",  "css properties..."},
+  calendarWrapperStyles: {border: "2px",  "css properties..."},
+  headerStyles:{
+      childrens: ["<<", "<", ">", ">>"],
+      ArrowButtonStyles:    "css properties...",
+      arrowButtonSize: "2rem" //( default is 1.5rem),
+      selectButton: {border: "2px",  "css properties..."},
+      header: {height: "200px", "css properties..."},
+  },
+  days: {
+    buttonday: {
+      "css properties..."
+    },
+      dayname: {
+      "css properties..."
+    }
+  },
+  select: {
+    selectContainer: {
+      "css properties..."
+    },
+    selectOptions:{
+      "css properties..."
+    },
+  }
+};
+```
+
+If you want to style the arrow buttons to go to the next or previous year/month you can set the key size like above.
+Other keys:
+
+1. primarycolor: "#54a0ff",
+2. secondarycolor: "#DB5461",
+3. tertiarycolor: "ffffff",
+4. customSelect: will style the button "Month" and "Year"
+5. inputStyles: style the main inpux text that is displaying the date in a text format
+6. calendarWrapperStyles: will style the whole calendar container
+7. headerStyles : {
+   arrowButton: will style the button that look like arrows in the calenda,
+   header: will style the header }
+8. days:{
+   dayname: will style the day of the week ( the days written in letters) inside the calendar
+   buttonday: will style the day of the week ( the days written in number) inside the calendar
+   }
+9. select: {
+   selectContainer: will style the options container
+   selectOptions: will style the options (months and year)
+   }
 
 Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
 
-> This TSDX setup is meant for developing React component libraries (not apps!) that can be published to NPM. If you’re looking to build a React-based app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
+## Commands you can use to change or update the package.
 
-> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
-
-## Commands
+First now that I used TSDX.
 
 TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
 

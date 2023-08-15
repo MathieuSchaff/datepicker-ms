@@ -5,12 +5,12 @@ import {
   getISODay,
   startOfMonth,
   subMonths,
-} from "date-fns";
-import React, { useMemo } from "react";
-import ButtonDay, { WrapperDayButtons } from "../ButtonDay/ButtonDayStyled";
-import { IStyles } from "../types";
-import { getWeekDays, previousDaysArray } from "../utils/datepickerUtils";
-import { DayName, SevenColGrid } from "./styled";
+} from 'date-fns';
+import React, { useMemo } from 'react';
+import ButtonDay, { WrapperDayButtons } from '../ButtonDay/ButtonDayStyled';
+import { IStyles } from '../types';
+import { getWeekDays, previousDaysArray } from '../utils/datepickerUtils';
+import { DayName, SevenColGrid } from './styled';
 interface IDays {
   minDate?: Date;
   maxDate?: Date;
@@ -68,7 +68,7 @@ const Days = ({
   return (
     <>
       <SevenColGrid role="grid">
-        {weekDays.map((day) => (
+        {weekDays.map(day => (
           <DayName
             key={day}
             style={{ ...styles?.days?.dayname }}

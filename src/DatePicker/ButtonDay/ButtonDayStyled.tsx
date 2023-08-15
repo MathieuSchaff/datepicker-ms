@@ -1,6 +1,6 @@
-import { format, isAfter, isBefore, isSameDay, setDate } from "date-fns";
-import React, { useMemo } from "react";
-import styled from "styled-components";
+import { format, isAfter, isBefore, isSameDay, setDate } from 'date-fns';
+import React, { useMemo } from 'react';
+import styled from 'styled-components';
 export const WrapperDayButtons = styled.div`
   overflow: hidden;
 `;
@@ -24,12 +24,12 @@ const ButtonDayStyled = styled.button<TypedButtonDay>`
   font-size: 1.2rem;
   cursor: pointer;
   position: relative;
-  color: ${(props) => props.primarycolor || "teal"};
+  color: ${props => props.primarycolor || 'teal'};
   border: 2px solid transparent;
-  opacity: ${(props) => (props.mainArray ? 1 : 0.5)};
+  opacity: ${props => (props.mainArray ? 1 : 0.5)};
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     pointer-events: none;
     width: 100px;
     height: 100px;
@@ -38,12 +38,12 @@ const ButtonDayStyled = styled.button<TypedButtonDay>`
     z-index: -1;
     display: none;
     opacity: 0.4;
-    background-color: ${(props) => props.primarycolor || "teal"};
+    background-color: ${props => props.primarycolor || 'teal'};
   }
   &:hover {
-    color: ${(props) => props.tertiarycolor || "white"};
-    background-color: ${(props) => props.primarycolor || "teal"};
-    border-color: ${(props) => props.primarycolor || "teal"};
+    color: ${props => props.tertiarycolor || 'white'};
+    background-color: ${props => props.primarycolor || 'teal'};
+    border-color: ${props => props.primarycolor || 'teal'};
     &::after {
       display: block;
     }
@@ -51,8 +51,8 @@ const ButtonDayStyled = styled.button<TypedButtonDay>`
   &:disabled {
     opacity: 0.5;
   }
-  &&.active {
-    background-color: ${(props) => props.primarycolor || "teal"};
+  &&.button-active {
+    background-color: ${props => props.primarycolor || 'teal'};
     color: white;
     &:hover {
       opacity: 0.5;
@@ -99,10 +99,10 @@ const ButtonDay = ({
 }: IButtonDay) => {
   const myDay = setDate(value, dayNumber);
   const sameDay = mainArray && isSameDay(myDay, value);
-  const activeClass = useMemo(() => {
-    if (prefix) return "button-day button-day-prefix";
-    if (suffix) return "button-day button-day-suffix";
-    return sameDay ? "active button-day" : "button-day";
+  const buttonDayClass = useMemo(() => {
+    if (prefix) return 'button-day button-day-prefix';
+    if (suffix) return 'button-day button-day-suffix';
+    return sameDay ? 'button-active button-day' : 'button-day';
   }, [prefix, sameDay, suffix]);
   const handleClick = () => {
     onChange(myDay);
@@ -122,7 +122,7 @@ const ButtonDay = ({
   return (
     <ButtonDayStyled
       onClick={() => handleClick()}
-      className={activeClass}
+      className={buttonDayClass}
       primarycolor={primarycolor}
       secondarycolor={secondarycolor}
       tertiarycolor={tertiarycolor}

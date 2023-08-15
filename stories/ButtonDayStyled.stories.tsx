@@ -55,6 +55,6 @@ const Template: ComponentStory<typeof ButtonDay> = (arg) => (
   <ButtonDay {...arg} />
 );
 
-export const Default = Template.bind({});
+export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Default.args = props;
+Primary.args = props;

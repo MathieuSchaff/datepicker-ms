@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "1.8.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -10,6 +10,14 @@
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "datepicker-ms",
+    "datepicker from scratch",
+    "react datepicker typescript",
+    "react datepicker",
+    "datepicker react",
+    "datepicker react typescript"
+  ],
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
@@ -22,7 +30,11 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "usehooks-ts": "^2.9.1",
+    "date-fns": "^2.29.3",
+    "react-icons": "^4.7.1",
+    "styled-components": "^5.3.6"
   },
   "husky": {
     "hooks": {
@@ -37,14 +49,14 @@
   },
   "name": "react-datepicker-ms",
   "author": "Mathieu Schaff",
-  "module": "dist/my-new-project.esm.js",
+  "module": "dist/react-datepicker-ms.esm.js",
   "size-limit": [
     {
-      "path": "dist/my-new-project.cjs.production.min.js",
+      "path": "dist/react-datepicker-ms.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/my-new-project.esm.js",
+      "path": "dist/react-datepicker-ms.esm.js",
       "limit": "10 KB"
     }
   ],
